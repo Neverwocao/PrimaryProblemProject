@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://wzp168.top/static/js/jquery-3.6.0.min.js"></script>
+    <script src="http://wzp168.top/static/layer/layer.js"></script>
+    <script src="http://wzp168.top/static/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://wzp168.top/static/bootstrap-3.4.1-dist/css/bootstrap.min.css"/>
+</head>
+<body background="">
+
+<div class="row">
+    <div style="background: rgb(34,34,34);height: 50px" class="col-md-8">.col-md-8</div>
+    <div style="background: rgb(34,34,34);height: 50px" class="col-md-4">.col-md-4</div>
+</div>
+
+<div class="col-lg-7">
+    <h3 style="padding-left: 250px;padding-bottom: 10px;">请设置运算类型：(可多选)</h3>
+    <div style="padding-left: 250px;">
+        <form id="problemInfoFrom" action="http://localhost:8080/generate" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">选择运算类型</label>
+                <div class="col-sm-10">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="calStyle" id="inlineCheckbox1" value="1"> <span>加法</span>
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="calStyle" id="inlineCheckbox2" value="2"> <span>减法</span>
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="calStyle" id="inlineCheckbox3" value="3"> <span>乘法</span>
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="calStyle" id="inlineCheckbox4" value="4"> <span
+                            id="inlineCheckbox4_span">除法</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">几以内的运算</label>
+                <div class="col-sm-10">
+                    <input style="width: 30%;" name="maxNum" type="number" id="inputEmail3"
+                           class="form-control text-nowrap"
+                           placeholder="最大运算数">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">几步运算</label>
+                <div class="col-sm-10">
+                    <input style="width: 30%;" name="stepNum" type="number" class="form-control text-nowrap"
+                           id="inputPassword3"
+                           placeholder="运算的步数">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">生成题目数量</label>
+                <div class="col-sm-10">
+                    <input style="width: 30%;" name="problemNum" type="number" class="form-control text-nowrap"
+                           placeholder="生成的题目数量">
+                    <p class="help-block">最少5题,最多30题</p>
+                </div>
+            </div>
+            <input type="hidden" id="tempToken">
+            <input type="hidden" id="atomToken">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button id="generateBtn" type="button" class="btn btn-default">生成</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">-->
+<!--    Launch demo modal-->
+<!--</button>-->
+<!-- 模态框-->
+<div id="testPaper" style="display: none" class="col-lg-5">
+    <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="modalHeader">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <div id="headTitleInfo">
+                        <span style="font-size: 18px;">试题(每题 3 分)</span>
+
+                        <!--                    <span style="padding-left: 200px ;font-size: 20px;color: red">总分：100</span>-->
+                    </div>
+                    <!--                <h4 class="modal-title" id="myModalLabel">试题</h4>-->
+                    <input type="hidden" id="paperToken">
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!--                <p>-->
+                    <!--                    1 + 1 = <input style="width: 50px" class="problem">-->
+                    <!--                </p>-->
+                </div>
+                <div class="modal-footer">
+                    <!--                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+                    <button type="button" id="submitPaper" class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/javascript" src="http://wzp168.top/static/js/mainFuncation.js"></script>
+</body>
+</html>
